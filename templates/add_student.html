@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+            
+<div class="nav nav-pills col-lg-6 justify-content-lg-center">
+    <a class="nav-link" aria-current="page" href="{{url_for('index')}}">Welcome</a>
+    <a class="nav-link active" href="{{url_for('add_student')}}">Add Student</a>
+    <a class="nav-link" href="{{url_for('remove_student')}}">Remove Student</a>
+    <a class="nav-link" href="{{url_for('database')}}">Database</a>
+
+  </div>
+
+  <div class="nav-item dropdown ms-auto">
+      <a href="#" class="nav-link dropdown-toggle text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+        </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="#">New project</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Sign out</a></li>
+      </ul>
+    </div>
+</div>
+</div>
+</nav>
+
+
+<div class="container">
+    <br>
+    <h2>Add Student</h2>
+    <hr>
+
+    <form method="POST" action="{{ url_for('add_student') }}">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone:</label>
+            <input type="text" class="form-control"id="phone" name="phone" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="city" class="form-label">City:</label>
+            <input type="text" class="form-control" id="city" name="city" required>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-primary" value="Add Student">
+        </div>
+    </form>
+</div>
+    
+
+
+    {% endblock %}

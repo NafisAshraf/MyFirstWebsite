@@ -1,0 +1,68 @@
+
+{% extends "base.html" %}
+    {% block content %}
+
+            
+            <div class="nav nav-pills col-lg-6 justify-content-lg-center">
+              <a class="nav-link" aria-current="page" href="{{url_for('index')}}">Welcome</a>
+              <a class="nav-link" href="{{url_for('add_student')}}">Add Student</a>
+              <a class="nav-link" href="{{url_for('remove_student')}}">Remove Student</a>
+              <a class="nav-link active" href="{{url_for('database')}}">Database</a>
+
+            </div>
+
+            <div class="nav-item dropdown ms-auto">
+                <a href="#" class="nav-link dropdown-toggle text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                  </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="#">New project</a></li>
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </nav>
+
+
+
+    <div class="container">
+        <br>
+        <h2>Students Database</h2>
+        <hr>
+
+        <div class="container tbl-container">
+            <div class="row tbl-fixed">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>City</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                            <tr>
+                                <td>{{ student[0] }}</td>
+                                <td>{{ student[1] }}</td>
+                                <td>{{ student[2] }}</td>
+                                <td>{{ student[3] }}</td>
+                                <td>{{ student[4] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+        
+    
+    {% endblock %}
+
